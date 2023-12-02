@@ -1,18 +1,19 @@
 <template>
   <div class="app">
-    <p>{{ name }} - {{ age }}</p>
-    <button @click="changeName('Squirtle')">Change name!</button>
-    <button @click="changeAge(30)">Change age!</button>
+    <!-- <p>{{ jobs[0].title }}</p> -->
+    <pre>{{ jobs }}</pre>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, ref, toRefs } from "vue";
+import Job from "@/types/Job";
 
 export default defineComponent({
   name: "App",
   components: {},
   setup() {
+    // --- using reactive ---
     // const state = reactive({
     //   name: "Link",
     //   age: 25 as string | number,
@@ -20,10 +21,28 @@ export default defineComponent({
 
     // return { ...toRefs(state) };
 
-    const name = ref<string>("Link");
-    const age = ref<number | string>(25);
+    // --- using ref ---
+    // const name = ref<string>("Link");
+    // const age = ref<number | string>(25);
 
-    return { name, age };
+    // return { name, age };
+
+    const jobs = ref<Job[]>([
+      {
+        title: "Farm worker",
+        location: "Bandung",
+        salary: 1000,
+        id: "2",
+      },
+      {
+        title: "Fisherman",
+        location: "Pangandaran",
+        salary: 1050,
+        id: "1",
+      },
+    ]);
+
+    return { jobs };
   },
   // data() {
   //   return {
@@ -31,15 +50,15 @@ export default defineComponent({
   //     age: 25 as number | string,
   //   };
   // },
-  methods: {
-    changeName(name: string) {
-      this.name = name;
-      return name;
-    },
-    changeAge(age: number) {
-      this.age = age;
-      return age;
-    },
-  },
+  // methods: {
+  //   changeName(name: string) {
+  //     this.name = name;
+  //     return name;
+  //   },
+  //   changeAge(age: number) {
+  //     this.age = age;
+  //     return age;
+  //   },
+  // },
 });
 </script>
