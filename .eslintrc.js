@@ -1,24 +1,34 @@
 module.exports = {
-  root: true,
   env: {
+    browser: true,
+    es2021: true,
     node: true,
   },
-  extends: [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    "plugin:prettier/recommended",
-  ],
+  extends: ["eslint:recommended", "plugin:vue/vue3-essential"],
   parserOptions: {
-    parser: "@babel/eslint-parser",
+    ecmaVersion: 12,
+    sourceType: "module",
+    parser: "@typescript-eslint/parser",
   },
+  plugins: ["vue", "@typescript-eslint"],
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "prettier/prettier": [
-      "error",
+    "vue/multi-word-component-names": "off",
+    "vue/object-curly-spacing": [2, "always"],
+    "vue/html-closing-bracket-spacing": [
+      2,
       {
-        endOfLine: "auto",
-        trailingComma: "all",
+        selfClosingTag: "always",
+      },
+    ],
+    "vue/max-attributes-per-line": [
+      2,
+      {
+        singleline: {
+          max: 1,
+        },
+        multiline: {
+          max: 1,
+        },
       },
     ],
   },
