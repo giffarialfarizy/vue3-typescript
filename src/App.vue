@@ -25,15 +25,21 @@ export default defineComponent({
   setup() {
     const jobs = ref<Job[]>([
       {
-        title: "Farm worker",
+        title: "Petani",
         location: "Lembang",
-        salary: 1000,
+        salary: 1100,
         id: "2",
       },
       {
-        title: "Fisherman",
+        title: "Nelayan",
         location: "Pangandaran",
         salary: 1050,
+        id: "1",
+      },
+      {
+        title: "Peternak",
+        location: "Cisarua",
+        salary: 900,
         id: "1",
       },
     ]);
